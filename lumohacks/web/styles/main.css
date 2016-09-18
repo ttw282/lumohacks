@@ -45,3 +45,25 @@ tr{border: 1px solid #ddd;}
 
 
 .institute, .city, .email {font-size:0.75em;}
+
+.transparent-header{
+    background: url("../images/test.jpg") center / cover;
+    background-position: center 20%;
+}
+
+.transparent-compheader{
+    background: url("/images/competition.uberbots.png") center / cover;
+    background-position: center 10%;
+}
+
+.transparent-header .mdl-layout__header,
+.transparent-header .mdl-layout__drawer-button,
+.member-name {
+    color: white;
+}
+
+.transparent-compheader .mdl-layout__header,
+.transparent-compheader .mdl-layout__drawer-button,
+.member-name {
+    color: white;
+}
