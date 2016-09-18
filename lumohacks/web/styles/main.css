@@ -3,10 +3,10 @@ html{background:black;}
 body{
 font-size:2em;
 width:100%;
-	background-image: url("/img/lumobackground.jpg");
+	background-image: none;
  
 }
-.mdl-layout__header{background:transparent;}
+.mdl-layout__header{background:transparent!important;}
 
 
 form{
