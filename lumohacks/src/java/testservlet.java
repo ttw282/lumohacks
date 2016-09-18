@@ -140,7 +140,7 @@ public class testservlet extends HttpServlet {
         //filter out only relevant facilities
         ArrayList<Facility> filtered = new ArrayList<>();
         for(int i = 0; i < arr.size(); i++){
-            if(((Facility)arr.get(i)).City.toLowerCase().equals(city.toLowerCase()) || ((Facility)arr.get(i)).R_Name.toLowerCase().contains(c_name.toLowerCase()) || c_name.toLowerCase().contains(((Facility)arr.get(i)).R_Name.toLowerCase()) || ((Facility)arr.get(i)).R_Descript.toLowerCase().contains(c_descript.toLowerCase()) || c_descript.toLowerCase().contains(((Facility)arr.get(i)).R_Descript.toLowerCase())){
+            if(((Facility)arr.get(i)).City.toLowerCase().equals(city.toLowerCase()) && (((Facility)arr.get(i)).R_Name.toLowerCase().contains(c_name.toLowerCase()) || c_name.toLowerCase().contains(((Facility)arr.get(i)).R_Name.toLowerCase()) || ((Facility)arr.get(i)).R_Descript.toLowerCase().contains(c_descript.toLowerCase()) || c_descript.toLowerCase().contains(((Facility)arr.get(i)).R_Descript.toLowerCase()))){
                 filtered.add(arr.get(i));
             }
         }
@@ -203,7 +203,7 @@ public class testservlet extends HttpServlet {
         //filter out only relevant facilities
         ArrayList<Patient> filtered = new ArrayList<>();
         for(int i = 0; i < arr.size(); i++){
-            if(((Patient)arr.get(i)).City.toLowerCase().equals(city.toLowerCase()) || ((Patient)arr.get(i)).C_Name.toLowerCase().contains(r_name.toLowerCase()) || r_name.toLowerCase().contains(((Patient)arr.get(i)).C_Name.toLowerCase()) || ((Patient)arr.get(i)).C_Descript.toLowerCase().contains(r_descript.toLowerCase()) || r_descript.toLowerCase().contains(((Patient)arr.get(i)).C_Descript.toLowerCase())){
+            if(((Patient)arr.get(i)).City.toLowerCase().equals(city.toLowerCase()) && (((Patient)arr.get(i)).C_Name.toLowerCase().contains(r_name.toLowerCase()) || r_name.toLowerCase().contains(((Patient)arr.get(i)).C_Name.toLowerCase()) || ((Patient)arr.get(i)).C_Descript.toLowerCase().contains(r_descript.toLowerCase()) || r_descript.toLowerCase().contains(((Patient)arr.get(i)).C_Descript.toLowerCase()))){
                 filtered.add(arr.get(i));
             }
         }

@@ -62,25 +62,24 @@ function myController($scope) {
             </style>
     </head>
     <body ng-app>
- <div ng-controller="myController" >
-    <input class="form-control" placeholder="Search..." ng-model="searchText">
+ <div ng-controller="myController" class="center"><br>
+<h1>Matching Facilities</h1><br>
+    <input class="form-control" placeholder="Search..." ng-model="searchText"><br>
   <table class="table table-bordered">
-      <th>Name</th>
-    <th>City</th>
-    <th>Email</th>
-        <th>Research Name</th>
-    <th>Research Description</th>
-    <th>Institute</th>
 
   <tr ng-repeat="x in facilities | filter:searchText">
-    <td>{{ x.Name }}</td>
-    <td>{{ x.City }}</td>
-    <td>{{ x.Email }}</td>
-    <td>{{ x.R_Name }}</td>
-    <td>{{ x.R_Descript }}</td>
-    <td>{{ x.Institute }}</td>
+
+<td>
+    <img src="" height="100px" width="100px" align="center">
+    <h3 class="name">{{ x.Name }}</h3>
+    <span class="institute">{{ x.Institute }}</span><br>
+    <span class="city">{{ x.City }}</span>
+    <span class="email">{{ x.Email }}</span></td>
+    <td class="research"><span class="r_name">{{ x.R_Name }}</span><br>
+    <span class="r_descript">{{ x.R_Descript }}</span><td>
 
   </tr>
+ 
 </table>
                      <a class='btn btn-primary center btn-lg' href="http://lumohacks-photoshare1.rhcloud.com/lumohacks/" style="font-weight:bold">home</a>
 
