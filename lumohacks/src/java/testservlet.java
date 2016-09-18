@@ -142,6 +142,12 @@ public class testservlet extends HttpServlet {
             String name = request.getParameter("name");
             Integer numpatients = 0;
             String city = request.getParameter("city");
+            String email = request.getParameter("email");
+            String institute = request.getParameter("institute");
+            String r_name = request.getParameter("r_name");
+            Boolean r_trial = Boolean.parseBoolean(request.getParameter("r_trial"));
+            String r_descript = request.getParameter("r_descript");
+            
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         String username = "adminP1f8xDA";
         String pw = "m9uw6PHVRkvU";
@@ -149,10 +155,15 @@ public class testservlet extends HttpServlet {
         Connection con = DriverManager.getConnection(conn, username, pw);
         con.setAutoCommit(false);
 
-        PreparedStatement ps = con.prepareStatement("insert into facilities(name,numpatients,city) values(?,?,?)");
+        PreparedStatement ps = con.prepareStatement("insert into facilities(name,numpatients,city,email,institute,r_name,r_trial,r_descript) values(?,?,?,?,?,?,?,?)");
         ps.setString(1, name);
         ps.setInt(2, numpatients);
         ps.setString(3, city);
+        ps.setString(4, email);
+        ps.setString(5, institute);
+        ps.setString(6, r_name);
+        ps.setBoolean(7, r_trial);
+        ps.setString(8, r_descript);
         
         ps.executeUpdate();
         
