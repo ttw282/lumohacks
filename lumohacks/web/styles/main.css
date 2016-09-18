@@ -73,6 +73,8 @@ tr{border: 1px solid #ddd;}
 }
 
 .mdl-mini-footer
-{position:float;
+{position:float!important;
 	bottom:0px;
+	
+	
 }
