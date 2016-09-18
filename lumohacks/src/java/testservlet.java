@@ -60,6 +60,8 @@ public class testservlet extends HttpServlet {
         }
     }
     
+    
+    
     protected void processFetchAllFacilities(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
 
@@ -83,6 +85,68 @@ public class testservlet extends HttpServlet {
         result = new Gson().toJson(arr);
         
         response.getWriter().print(result);
+        con.close();
+        }
+        catch(Exception e){
+            response.getWriter().print(e);
+        }
+    }
+    
+    protected void processAddPatient(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException {
+
+        try{
+            
+            String name = request.getParameter("name");
+            Integer age = Integer.parseInt(request.getParameter("age"));
+            String city = request.getParameter("city");
+            String disease = request.getParameter("condition");
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        String username = "adminP1f8xDA";
+        String pw = "m9uw6PHVRkvU";
+        String conn = "jdbc:mysql://127.12.25.130:3306/lumohacks?zeroDateTimeBehavior=convertToNull";
+        Connection con = DriverManager.getConnection(conn, username, pw);
+        con.setAutoCommit(false);
+
+        PreparedStatement ps = con.prepareStatement("insert into patients(name,age,city,disease) values(?,?,?,?)");
+        ps.setString(1, name);
+        ps.setInt(2, age);
+        ps.setString(3, city);
+        ps.setString(4, disease);
+        
+        ps.executeUpdate();
+        
+        con.commit();
+        con.close();
+        }
+        catch(Exception e){
+            response.getWriter().print(e);
+        }
+    }
+    
+    protected void processAddFacility(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException {
+
+        try{
+            
+            String name = request.getParameter("name");
+            Integer numpatients = 0;
+            String city = request.getParameter("city");
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        String username = "adminP1f8xDA";
+        String pw = "m9uw6PHVRkvU";
+        String conn = "jdbc:mysql://127.12.25.130:3306/lumohacks?zeroDateTimeBehavior=convertToNull";
+        Connection con = DriverManager.getConnection(conn, username, pw);
+        con.setAutoCommit(false);
+
+        PreparedStatement ps = con.prepareStatement("insert into facilities(name,numpatients,city) values(?,?,?)");
+        ps.setString(1, name);
+        ps.setInt(2, numpatients);
+        ps.setString(3, city);
+        
+        ps.executeUpdate();
+        
+        con.commit();
         con.close();
         }
         catch(Exception e){
@@ -144,10 +208,27 @@ public class testservlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(testservlet.class.getName()).log(Level.SEVERE, null, ex);
+        String action = request.getParameter("action");
+        switch(action){
+            case "addpatient":
+        {
+                try {
+                    processAddPatient(request, response);
+                } catch (SQLException ex) {
+                    Logger.getLogger(testservlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
+        }
+            case "addfacility":
+        {
+                try {
+                    processAddFacility(request, response);
+                } catch (SQLException ex) {
+                    Logger.getLogger(testservlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
+        }
+                
         }
     }
 
