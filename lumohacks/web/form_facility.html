@@ -23,23 +23,23 @@
 <form action="http://lumohacks-photoshare1.rhcloud.com/lumohacks/lumohacks" method="post">
         <input type="hidden" name="action" value="addfacility"/>
 Facility Name:<br>
-<input type="text" name="name" class="form-control"><br>
+<input type="text" name="name" class="form-control" required><br>
 Institute Name:<br>
-<input type="text" name="institute" class="form-control"><br>
+<input type="text" name="institute" class="form-control" required><br>
 
 Location:<br>
-<input type="text" name="city" class="form-control"><br>
+<input type="text" name="city" class="form-control" required><br>
 
 Email:<br>
-<input type="email" name="email" class="form-control"><br>
+<input type="email" name="email" class="form-control" required><br>
 
 Research Study 1:<br>
-<input type="text" name="r_name" placeholder="Current Study" class="form-control"><br>
+<input type="text" name="r_name" placeholder="Current Study" class="form-control" required><br>
 
-<input type="checkbox" name="r_trial" value="trial"> Clinical Trial<br><br>
+<input type="checkbox" name="r_trial" value="trial" required> Clinical Trial<br><br>
 
 Description:<br>
-<textarea rows="4" cols="50" name="r_descript" class="form-control"></textarea><br>
+<textarea rows="4" cols="50" name="r_descript" class="form-control" required></textarea><br>
 
 <input type="submit" class="btn btn-primary" value="Submit">
 
