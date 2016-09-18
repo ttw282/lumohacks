@@ -16,12 +16,22 @@ public class Patient {
     public Integer Age;
     public String City;
     public String Disease;
+    public String Email;
+    public String Gender;
+    public String C_Name;
+    public String C_Year;
+    public String C_Descript;
     
-    public Patient(String id, String name, Integer age, String city, String disease){
+    public Patient(String id, String name, Integer age, String city, String disease, String email, String gender, String c_name, String c_year, String c_descript){
         this.Id = id;
         this.Name = name;
         this.Age = age;
         this.City = city;
         this.Disease = disease;
+        this.Email = email;
+        this.Gender = gender;
+        this.C_Name = c_name;
+        this.C_Year = c_year;
+        this.C_Descript = c_descript;
     }
 }

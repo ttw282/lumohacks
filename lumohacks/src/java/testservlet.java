@@ -47,7 +47,7 @@ public class testservlet extends HttpServlet {
         String result = "";
         ArrayList<Patient> arr = new ArrayList<>();
         while(rs.next()){
-            Patient pat = new Patient(rs.getString("id"), rs.getString("name"), rs.getInt("age"), rs.getString("city"), rs.getString("disease"));
+            Patient pat = new Patient(rs.getString("id"), rs.getString("name"), rs.getInt("age"), rs.getString("city"), rs.getString("disease"), rs.getString("email"), rs.getString("gender"), rs.getString("c_name"), rs.getString("c_year"), rs.getString("c_descript"));
             arr.add(pat);
         }
         result = new Gson().toJson(arr);
@@ -101,6 +101,11 @@ public class testservlet extends HttpServlet {
             Integer age = Integer.parseInt(request.getParameter("age"));
             String city = request.getParameter("city");
             String disease = request.getParameter("condition");
+            String email = request.getParameter("email");
+            String gender = request.getParameter("gender");
+            String c_name = request.getParameter("c_name");
+            String c_year = request.getParameter("c_year");
+            String c_descript = request.getParameter("c_descript");
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         String username = "adminP1f8xDA";
         String pw = "m9uw6PHVRkvU";
@@ -108,11 +113,16 @@ public class testservlet extends HttpServlet {
         Connection con = DriverManager.getConnection(conn, username, pw);
         con.setAutoCommit(false);
 
-        PreparedStatement ps = con.prepareStatement("insert into patients(name,age,city,disease) values(?,?,?,?)");
+        PreparedStatement ps = con.prepareStatement("insert into patients(name,age,city,disease,email,gender,c_name,c_year,c_descript) values(?,?,?,?,?,?,?,?,?)");
         ps.setString(1, name);
         ps.setInt(2, age);
         ps.setString(3, city);
         ps.setString(4, disease);
+        ps.setString(5, email);
+        ps.setString(6, gender);
+        ps.setString(7, c_name);
+        ps.setString(8, c_year);
+        ps.setString(9, c_descript);
         
         ps.executeUpdate();
         
