@@ -79,7 +79,7 @@ public class testservlet extends HttpServlet {
         String result = "";
         ArrayList<Facility> arr = new ArrayList<>();
         while(rs.next()){
-            Facility fac = new Facility(rs.getString("id"), rs.getString("name"), rs.getInt("numpatients"), rs.getString("city"));
+            Facility fac = new Facility(rs.getString("id"), rs.getString("name"), rs.getInt("numpatients"), rs.getString("city"), rs.getString("email"), rs.getString("institute"), rs.getString("r_name"), rs.getBoolean("r_trial"), rs.getString("r_descript"));
             arr.add(fac);
         }
         result = new Gson().toJson(arr);
@@ -127,6 +127,28 @@ public class testservlet extends HttpServlet {
         ps.executeUpdate();
         
         con.commit();
+        
+        
+        PreparedStatement ps1 = con.prepareStatement("select * from facilities");
+        ResultSet rs1 = ps1.executeQuery();
+        String result = "";
+        ArrayList<Facility> arr = new ArrayList<>();
+        while(rs1.next()){
+            Facility fac = new Facility(rs1.getString("id"), rs1.getString("name"), rs1.getInt("numpatients"), rs1.getString("city"), rs1.getString("email"), rs1.getString("institute"), rs1.getString("r_name"), rs1.getBoolean("r_trial"), rs1.getString("r_descript"));
+            arr.add(fac);
+        }
+        //filter out only relevant facilities
+        ArrayList<Facility> filtered = new ArrayList<>();
+        for(int i = 0; i < arr.size(); i++){
+            if(((Facility)arr.get(i)).City.toLowerCase().equals(city.toLowerCase()) || ((Facility)arr.get(i)).R_Name.contains(c_name) || c_name.contains(((Facility)arr.get(i)).R_Name) || ((Facility)arr.get(i)).R_Descript.contains(c_descript) || c_descript.contains(((Facility)arr.get(i)).R_Descript)){
+                filtered.add(arr.get(i));
+            }
+        }
+        result = new Gson().toJson(filtered);
+        
+        response.sendRedirect("filtered_facilities.html?filteredjson=" + result);
+        //response.getWriter().print(result);
+        
         con.close();
         }
         catch(Exception e){
