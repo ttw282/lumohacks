@@ -14,14 +14,15 @@
 </head>
 <body>
 
-<form action="#" method="post">
+<form action="http://lumohacks-photoshare1.rhcloud.com/lumohacks/lumohacks" method="post">
+        <input type="hidden" name="action" value="addfacility"/>
 Facility Name:<br>
-<input type="text" name="facility"><br>
+<input type="text" name="name"><br>
 Institute Name:<br>
 <input type="text" name="institute"><br>
 
 Location:<br>
-<input type="text" name="location"><br>
+<input type="text" name="city"><br>
 
 Email:<br>
 <input type="text" name="email"><br>
@@ -32,7 +33,7 @@ Research Study 1:<br>
 <input type="checkbox" name="r_trial" value="trial">Clinical Trial<br>
 
 Description:<br>
-<textarea rows="4" cols="50" name="c_descript"></textarea><br>
+<textarea rows="4" cols="50" name="r_descript"></textarea><br>
 
 <input type="submit" value="Submit">
 </form>
