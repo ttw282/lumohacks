@@ -5,14 +5,27 @@ background:cornsilk;
 font-size:2em;
 width:100%;}
 
-#content{
-width:70%;
-margin-left:auto;
-margin-right:auto;
-position:relative;}
+
 
 form{
 width:75%;
 max-width:500px;
 margin:auto;
 }
+
+.btn{font-size:3em;}
+
+form .btn{font-size:1.5em;}
+
+
+     .logo {
+	position:relative;
+	margin:5%;
+	width:95%;
+	max-width:680px;
+    }
+.center {
+           margin-left: auto;
+	   margin-right:auto;
+	text-align:center;
+    }
