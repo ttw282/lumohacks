@@ -56,29 +56,21 @@ function myController($scope) {
             </script>
     </head>
     <body ng-app>
- <div ng-controller="myController" >
+ <div ng-controller="myController" class="center">
      <input class="form-control" placeholder="Search..." ng-model="searchText">
   <table class="table table-bordered">
-      <th>Name</th>
-    <th>City</th>
-    <th>Email</th>
-        <th>Age</th>
-    <th>Disease</th>
-    <th>Condition Name</th>
-    <th>Condition Description</th>
-    <th>Condition Year</th>
-    <th>Gender</th>
-
   <tr ng-repeat="x in patients | filter:searchText">
-    <td>{{ x.Name }}</td>
-    <td>{{ x.City }}</td>
-    <td>{{ x.Email }}</td>
-    <td>{{ x.Age }}</td>
-    <td>{{ x.Disease }}</td>
-    <td>{{ x.C_Name }}</td>
-    <td>{{ x.C_Descript }}</td>
-    <td>{{ x.C_Year }}</td>
-        <td>{{ x.Gender }}</td>
+   <td>
+
+    <img src="" height="100px" width="100px" align="center">
+    <h3 class="name">{{ x.Name }}<small>{{ x.Age }} {{ x.Gender }}</small></h3>
+    <span class="city">{{ x.City }}</span><br>
+    <span class="email">{{ x.Email }}</span></td>
+    <td class="condition"><span class="c_name">{{ x.C_Name }} </span> {{ x.C_Year }} Years<br>
+    <span class="c_descript">{{ x.C_Descript }}</span><td>
+
+
+
 
   </tr>
 </table>
