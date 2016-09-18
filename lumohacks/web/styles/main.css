@@ -1,9 +1,13 @@
 
-
+html{background:cornsilk;}
 body{
 background:cornsilk;
 font-size:2em;
-width:100%;}
+width:100%;
+	background: url("/img/lumobackground.jpg") center / cover;
+    background-position: center 10%;
+    opacity:0.2;
+}
 
 
 
@@ -46,26 +50,3 @@ tr{border: 1px solid #ddd;}
 
 .institute, .city, .email {font-size:0.75em;}
 
-.transparent-header{
-    background: url("../img/lumobackground.jpg") center / cover;
-    background-position: center 20%;
-    z-index: -98;
-}
-
-.transparent-compheader{
-    background: url("/img/lumobackground.jpg") center / cover;
-    background-position: center 10%;
-    z-index: -99;
-}
-
-.transparent-header .mdl-layout__header,
-.transparent-header .mdl-layout__drawer-button,
-.member-name {
-    color: white;
-}
-
-.transparent-compheader .mdl-layout__header,
-.transparent-compheader .mdl-layout__drawer-button,
-.member-name {
-    color: white;
-}
