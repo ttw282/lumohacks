@@ -19,6 +19,12 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500" type="text/css">
+      <!-- Material Design Lite css and js -->
+      <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.grey-blue.min.css" />
+      <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js" async></script>
+     
+
 <link rel="stylesheet" href="styles/main.css">
         <style>
         body {background-color: cornsilk;} *
@@ -42,6 +48,30 @@ and open the template in the editor.
         </style>
     </head>
     <body>
+    	
+    	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header transparent-header">
+    <div class="overlay"></div>
+    <header class="mdl-layout__header mdl-layout__header--transparent">
+        <div class="mdl-layout__header-row">
+            
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation -->
+            <nav class="mdl-navigation">
+               <a class="mdl-navigation__link" href="">Home</a>
+               <a class="mdl-navigation__link" href="competition">About</a>
+            </nav>
+         </div>
+      </header>
+      <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+         <span class="mdl-layout-title">cBond</span>
+         <nav class="mdl-navigation mdl-typography--font-light mdl-typography--subhead">
+            <a class="mdl-navigation__link" href="">Home</a>
+            <a class="mdl-navigation__link" href="competition">About</a>
+         </nav>
+      </div>
+    </div>
+    	
         <div class="center">
 	<img src="img/logo.png" class="logo"><br>
         <a class='btn btn-primary btn-lg' href="http://lumohacks-photoshare1.rhcloud.com/lumohacks/form_patient.html" style="font-weight:bold">Patient</a>
