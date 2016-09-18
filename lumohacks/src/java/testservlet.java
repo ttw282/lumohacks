@@ -146,7 +146,8 @@ public class testservlet extends HttpServlet {
         }
         result = new Gson().toJson(filtered);
         
-        response.getWriter().print(result);
+        response.sendRedirect("filtered_facilities.html?filteredjson=" + result);
+        //response.getWriter().print(result);
         
         con.close();
         }
