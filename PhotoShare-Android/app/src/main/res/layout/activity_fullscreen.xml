@@ -1,0 +1,104 @@
+
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:fontFamily="sans-serif-smallcaps"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    tools:context="xyz.photoshares.photoshare_android.FullscreenActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+    is needed to present your content, e.g. VideoView, SurfaceView,
+    TextureView, etc. -->
+    <TextView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="@string/dummy_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="#33b5e5"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+
+
+
+
+
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:id="@+id/layout">
+
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/activity_main_swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ListView
+                android:id="@+id/listView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="10dp"
+                android:fadingEdge="none"
+                android:fontFamily="sans-serif-smallcaps"
+                android:listSelector="@android:color/transparent"
+                android:paddingBottom="50dp"
+                android:clipToPadding="false"
+                >
+            </ListView>
+
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    </FrameLayout>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="30dp"/>
+
+    <LinearLayout
+        android:id="@+id/fullscreen_content_controls"
+        style="?metaButtonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@color/black_overlay"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+
+        <EditText android:id="@+id/inputSearch"
+            android:layout_width="0dp"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:background="#FFFFFF"
+            android:singleLine="true"
+            android:hint="Search photos.." />
+
+        <Button
+            android:id="@+id/switchviewbtn"
+            style="?metaButtonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:text="@string/dummy_button" />
+
+    </LinearLayout>
+
+
+</FrameLayout>
+
