@@ -11,42 +11,45 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<link rel="stylesheet" href="styles/main.css">
+
 </head>
 <body>
-
+<div id="content">
 <form action="http://lumohacks-photoshare1.rhcloud.com/lumohacks/lumohacks" method="post">
     <input type="hidden" name="action" value="addpatient"/>
 Name:<br>
-<input type="text" name="name"><br>
+<input type="text" name="name" class="form-control"><br>
 
 Gender:<br>
-<select name="gender">
+<select name="gender" class="form-control" value=" ">
   <option value="female">Female</option>
   <option value="male">Male</option>
   <option value="other">Other</option>
 </select>
 <br>
 Age:<br>
-<input type="number" name="age"><br>
+<input type="number" name="age" class="form-control"><br>
 
 City:<br>
-<input type="text" name="city"><br>
+<input type="text" name="city" class="form-control"><br>
 
 Email:<br>
-<input type="text" name="email"><br>
+<input type="text" name="email" class="form-control"><br>
 
 Condition 1:<br>
-<input type="text" name="c_name"><br>
+<input type="text" name="c_name" class="form-control"><br>
 
 Period:<br>
-<input type="text" name="c_year" placeholder="Years"><br>
+<input type="text" name="c_year" placeholder="Years" class="form-control"><br>
 
 Description:<br>
-<textarea name="c_descript"></textarea>
+<textarea name="c_descript" class="form-control"></textarea>
 
 
 
-<input type="submit" value="Submit">
+<input type="submit" class="btn btn-primary" value="Submit">
+</div>
 </form>
 </body>
 </html>
