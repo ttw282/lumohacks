@@ -3,8 +3,7 @@ html{background:black;}
 body{
 font-size:2em;
 width:100%;
-	background: url("/img/lumobackground1.jpg") center;
-    background-position: center 10%;
+	background: url("/img/lumobackground.jpg") 0px 0px;
  
 }
 
