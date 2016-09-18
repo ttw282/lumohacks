@@ -60,6 +60,7 @@ function myController($scope) {
     </head>
     <body ng-app>
  <div ng-controller="myController" class="center">
+<h1>Matching Facilities</h1><br>
      <input class="form-control" placeholder="Search..." ng-model="searchText">
   <table class="table table-bordered">
   <tr ng-repeat="x in patients | filter:searchText">
@@ -77,8 +78,7 @@ function myController($scope) {
 
   </tr>
 </table>
-                          <a class='btn btn-primary center btn-lg' href="http://lumohacks-photoshare1.rhcloud.com/lumohacks/" style="font-weight:bold">home</a>
-
+                      
 </div>
 </body>
 </html>
