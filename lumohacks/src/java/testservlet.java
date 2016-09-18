@@ -140,7 +140,7 @@ public class testservlet extends HttpServlet {
         //filter out only relevant facilities
         ArrayList<Facility> filtered = new ArrayList<>();
         for(int i = 0; i < arr.size(); i++){
-            if(((Facility)arr.get(i)).City.toLowerCase().equals(city.toLowerCase()) || ((Facility)arr.get(i)).R_Name.contains(c_name) || c_name.contains(((Facility)arr.get(i)).R_Name) || ((Facility)arr.get(i)).R_Descript.contains(c_descript) || c_descript.contains(((Facility)arr.get(i)).R_Descript)){
+            if(((Facility)arr.get(i)).City.toLowerCase().equals(city.toLowerCase()) || ((Facility)arr.get(i)).R_Name.toLowerCase().contains(c_name.toLowerCase()) || c_name.toLowerCase().contains(((Facility)arr.get(i)).R_Name.toLowerCase()) || ((Facility)arr.get(i)).R_Descript.toLowerCase().contains(c_descript.toLowerCase()) || c_descript.toLowerCase().contains(((Facility)arr.get(i)).R_Descript.toLowerCase())){
                 filtered.add(arr.get(i));
             }
         }
@@ -190,6 +190,27 @@ public class testservlet extends HttpServlet {
         ps.executeUpdate();
         
         con.commit();
+        
+        
+        PreparedStatement ps1 = con.prepareStatement("select * from patients");
+        ResultSet rs1 = ps1.executeQuery();
+        String result = "";
+        ArrayList<Patient> arr = new ArrayList<>();
+        while(rs1.next()){
+            Patient pat = new Patient(rs1.getString("id"), rs1.getString("name"), rs1.getInt("age"), rs1.getString("city"), rs1.getString("disease"), rs1.getString("email"), rs1.getString("gender"), rs1.getString("c_name"), rs1.getString("c_year"), rs1.getString("c_descript"));
+            arr.add(pat);
+        }
+        //filter out only relevant facilities
+        ArrayList<Patient> filtered = new ArrayList<>();
+        for(int i = 0; i < arr.size(); i++){
+            if(((Patient)arr.get(i)).City.toLowerCase().equals(city.toLowerCase()) || ((Patient)arr.get(i)).C_Name.toLowerCase().contains(r_name.toLowerCase()) || r_name.toLowerCase().contains(((Patient)arr.get(i)).C_Name.toLowerCase()) || ((Patient)arr.get(i)).C_Descript.toLowerCase().contains(r_descript.toLowerCase()) || r_descript.toLowerCase().contains(((Patient)arr.get(i)).C_Descript.toLowerCase())){
+                filtered.add(arr.get(i));
+            }
+        }
+        result = new Gson().toJson(filtered);
+        
+        response.sendRedirect("filtered_patients.html?filteredjson=" + result);
+        
         con.close();
         }
         catch(Exception e){
