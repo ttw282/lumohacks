@@ -47,7 +47,7 @@ $( document ).ready(function() {
 
 
 function myController($scope) {
-    $scope.facilities = $.parseJSON(getParameterByName("filteredjson", window.location.href));
+    $scope.patients = $.parseJSON(getParameterByName("filteredjson", window.location.href));
    
             }
             
@@ -57,22 +57,28 @@ function myController($scope) {
     </head>
     <body ng-app>
  <div ng-controller="myController" >
-    <input class="form-control" placeholder="Search..." ng-model="searchText">
+     <input class="form-control" placeholder="Search..." ng-model="searchText">
   <table class="table table-bordered">
       <th>Name</th>
     <th>City</th>
     <th>Email</th>
-        <th>Research Name</th>
-    <th>Research Description</th>
-    <th>Institute</th>
+        <th>Age</th>
+    <th>Disease</th>
+    <th>Condition Name</th>
+    <th>Condition Description</th>
+    <th>Condition Year</th>
+    <th>Gender</th>
 
-  <tr ng-repeat="x in facilities | filter:searchText">
+  <tr ng-repeat="x in patients | filter:searchText">
     <td>{{ x.Name }}</td>
     <td>{{ x.City }}</td>
     <td>{{ x.Email }}</td>
-    <td>{{ x.R_Name }}</td>
-    <td>{{ x.R_Descript }}</td>
-    <td>{{ x.Institute }}</td>
+    <td>{{ x.Age }}</td>
+    <td>{{ x.Disease }}</td>
+    <td>{{ x.C_Name }}</td>
+    <td>{{ x.C_Descript }}</td>
+    <td>{{ x.C_Year }}</td>
+        <td>{{ x.Gender }}</td>
 
   </tr>
 </table>
