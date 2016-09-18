@@ -71,3 +71,8 @@ tr{border: 1px solid #ddd;}
     margin-left: auto !important;
     margin-right: auto !important;
 }
+
+.mdl-mini-footer
+{position:float;
+	bottom:0px;
+}
