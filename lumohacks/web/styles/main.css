@@ -40,7 +40,7 @@ table, .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered
 .research, .condition {
 text-align:left;
 }
-
+tr{border: 1px solid #ddd;}
 .r_name, .c_name{font-weight:bold;}
 
 
