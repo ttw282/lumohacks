@@ -49,3 +49,26 @@ tr{border: 1px solid #ddd;}
 
 .institute, .city, .email {font-size:0.75em;}
 
+.biography-name{
+    font-size: 20px;  
+    text-align: left;
+    text-indent: 150px;
+    color: white;
+}
+
+.description-text {
+    font-size: 16px;
+    color: white;
+    line-height: 25px;
+    text-align: center;
+    width: 800px !important;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
