@@ -62,7 +62,7 @@ function myController($scope) {
  <div ng-controller="myController" class="center">
 <br>
 <h1>Matching Patients</h1><br>
-     <input class="form-control" placeholder="Search..." ng-model="searchText">
+     <input class="form-control" placeholder="Search..." ng-model="searchText"><br>
   <table class="table table-bordered">
   <tr ng-repeat="x in patients | filter:searchText">
    <td>
