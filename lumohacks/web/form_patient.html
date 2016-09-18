@@ -14,11 +14,10 @@
 </head>
 <body>
 
-<form>
-First name:<br>
-<input type="text" name="firstname"><br>
-Last name:<br>
-<input type="text" name="firstname"><br>
+<form action="http://lumohacks-photoshare1.rhcloud.com/lumohacks/lumohacks" method="post">
+    <input type="hidden" name="action" value="addpatient"/>
+Name:<br>
+<input type="text" name="name"><br>
 
 Gender:<br>
 <select name="gender">
@@ -43,7 +42,7 @@ Period:<br>
 <input type="text" name="c_year" placeholder="Years"><br>
 
 Description:<br>
-<input type="text" name="c_descript"><br>
+<textarea name="c_descript"></textarea>
 
 
 
