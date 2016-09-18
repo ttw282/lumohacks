@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -11,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
@@ -19,6 +21,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Facility;
+import models.Patient;
 
 /**
  *
@@ -29,17 +33,30 @@ public class testservlet extends HttpServlet {
 
     protected void processFetchAllPatients(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        try{
+            
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        String username = "adminP1f8xDA";
+        String pw = "m9uw6PHVRkvU";
+        String conn = "jdbc:mysql://127.12.25.130:3306/lumohacks?zeroDateTimeBehavior=convertToNull";
+        Connection con = DriverManager.getConnection(conn, username, pw);
+        con.setAutoCommit(false);
+
+        PreparedStatement ps = con.prepareStatement("select * from patients");
+        ResultSet rs = ps.executeQuery();
+        String result = "";
+        ArrayList<Patient> arr = new ArrayList<>();
+        while(rs.next()){
+            Patient pat = new Patient(rs.getString("id"), rs.getString("name"), rs.getInt("age"), rs.getString("city"), rs.getString("disease"));
+            arr.add(pat);
+        }
+        result = new Gson().toJson(arr);
+        
+        response.getWriter().print(result);
+        con.close();
+        }
+        catch(Exception e){
+            response.getWriter().print(e);
         }
     }
     
@@ -55,15 +72,16 @@ public class testservlet extends HttpServlet {
         Connection con = DriverManager.getConnection(conn, username, pw);
         con.setAutoCommit(false);
 
-        PreparedStatement ps = con.prepareStatement("select * from patients");
+        PreparedStatement ps = con.prepareStatement("select * from facilities");
         ResultSet rs = ps.executeQuery();
         String result = "";
+        ArrayList<Facility> arr = new ArrayList<>();
         while(rs.next()){
-            result += rs.getString("id") + "," + rs.getString("disease") + "," + rs.getString("name") + "," + rs.getInt("age") + "," + rs.getString("city") + ";";
+            Facility fac = new Facility(rs.getString("id"), rs.getString("name"), rs.getInt("numpatients"), rs.getString("city"));
+            arr.add(fac);
         }
-        if (result.length() > 0) {
-            result = result.substring(0, result.length()-1);
-        }
+        result = new Gson().toJson(arr);
+        
         response.getWriter().print(result);
         con.close();
         }
